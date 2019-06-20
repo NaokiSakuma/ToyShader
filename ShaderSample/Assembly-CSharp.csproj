@@ -57,7 +57,7 @@
      <None Include="Assets\Shaders\sample.shader" />
      <None Include="Assets\Shaders\translucent.shader" />
      <None Include="Assets\Shaders\property.shader" />
-     <None Include="Assets\Shaders\NewSurfaceShader.shader" />
+     <None Include="Assets\Shaders\ice.shader" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/Users/naoki.sakuma/ToyShader/ShaderSample/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
