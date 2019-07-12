@@ -41,8 +41,8 @@
 				// o.Albedo = dot(c.rgb, float3(0.3f, 0.59f, 0.11f));
 				// o.Alpha = 1;
 			}
-	// Shaderの記述終了
-	ENDCG
+			// Shaderの記述終了
+			ENDCG
 	}
 	// SubShaderに失敗した時に呼ばれる
 	FallBack "Diffuse"
