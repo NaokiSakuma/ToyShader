@@ -55,6 +55,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ChangeColor.cs" />
      <Compile Include="Assets\Scripts\LODTest.cs" />
+     <None Include="Assets\Shaders\textureBlend.shader" />
+     <None Include="Assets\Shaders\moveRing.shader" />
      <None Include="Assets\Shaders\sample.shader" />
      <None Include="Assets\Shaders\waterSurface.shader" />
      <None Include="Assets\Shaders\texture.shader" />
