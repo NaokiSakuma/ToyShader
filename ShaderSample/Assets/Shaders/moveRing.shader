@@ -1,48 +1,54 @@
 ﻿Shader "Custom/moveRing" {
+	// プロパティ
 	Properties {
-		_Color ("Color", Color) = (1,1,1,1)
-		_MainTex ("Albedo (RGB)", 2D) = "white" {}
-		_Glossiness ("Smoothness", Range(0,1)) = 0.5
-		_Metallic ("Metallic", Range(0,1)) = 0.0
+		// 波紋の色
+		_Color ("Color" , Color) = (1 ,1 ,1 ,1)
 	}
+	// Shaderの中身の記述
 	SubShader {
-		Tags { "RenderType"="Opaque" }
+		// 一般的なShaderを使用
+		Tags { "RenderType" = "Opaque" }
+		// しきい値
 		LOD 200
 
+		// cg言語記述
 		CGPROGRAM
-		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard fullforwardshadows
-
-		// Use shader model 3.0 target, to get nicer looking lighting
+		// 指定しないとフォワードレンダリング
+		#pragma surface surf Standard
+		// Shader Model
 		#pragma target 3.0
 
-		sampler2D _MainTex;
-
+		// input構造体
 		struct Input {
-			float2 uv_MainTex;
+			// ワールド座標
+			float3 worldPos;
 		};
 
-		half _Glossiness;
-		half _Metallic;
+		// 波紋の色
 		fixed4 _Color;
 
-		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-		// #pragma instancing_options assumeuniformscaling
-		UNITY_INSTANCING_BUFFER_START(Props)
-			// put more per-instance properties here
-		UNITY_INSTANCING_BUFFER_END(Props)
-
+		// surf関数
 		void surf (Input IN, inout SurfaceOutputStandard o) {
-			// Albedo comes from a texture tinted by color
-			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-			o.Albedo = c.rgb;
-			// Metallic and smoothness come from slider variables
-			o.Metallic = _Metallic;
-			o.Smoothness = _Glossiness;
-			o.Alpha = c.a;
+			// 原点からの距離
+ 			float dist = distance(fixed3(0, 0, 0), IN.worldPos);
+			// 波紋の感覚
+			float interval = 3.0f;
+			// 波紋のスピード
+			float speed = 10.0f;
+			// sin波
+			float val = abs(sin(dist * interval + _Time.y * speed));
+			// リングの幅(0 ~ 1)
+			float ringWidth = 0.98f;
+			// ベースカラーを変化させる
+			if (val > ringWidth) {
+				o.Albedo = fixed4(1,1,1,1);
+			} else {
+				o.Albedo = _Color;
+			}
 		}
+		// Shaderの記述終了
 		ENDCG
 	}
+	// SubShaderが失敗した時に呼ばれる
 	FallBack "Diffuse"
 }
