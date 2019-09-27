@@ -54,8 +54,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ChangeColor.cs" />
+     <Compile Include="Assets\Scripts\Dissolve.cs" />
      <Compile Include="Assets\Scripts\LODTest.cs" />
      <Compile Include="Assets\Scripts\MeshIndex.cs" />
+     <Compile Include="Assets\Scripts\MeshTopologyPoints.cs" />
      <Compile Include="Assets\Scripts\PileSnow.cs" />
      <Compile Include="Assets\Scripts\RotateObject.cs" />
      <Compile Include="Assets\Scripts\Snow.cs" />
@@ -66,6 +68,7 @@
      <None Include="Assets\Shaders\waterSurface.shader" />
      <None Include="Assets\Shaders\texture.shader" />
      <None Include="Assets\Shaders\toon.shader" />
+     <None Include="Assets\Shaders\gradationPoints.shader" />
      <None Include="Assets\Shaders\uvVertex.shader" />
      <None Include="Assets\Shaders\LOD.shader" />
      <None Include="Assets\Baker House\Readme.txt" />
@@ -75,9 +78,11 @@
      <None Include="Assets\Shaders\rimlighting.shader" />
      <None Include="Assets\Shaders\fallSnow.shader" />
      <None Include="Assets\Shaders\ice.shader" />
+     <None Include="Assets\Shaders\stencilObject.shader" />
      <None Include="Assets\Shaders\perlinNoise.shader" />
      <None Include="Assets\Shaders\snow.shader" />
      <None Include="Assets\Shaders\culling.shader" />
+     <None Include="Assets\Shaders\stencilMask.shader" />
      <None Include="Assets\Shaders\valueNoise.shader" />
      <None Include="Assets\Shaders\moveRingFix.shader" />
      <None Include="Assets\Shaders\stainedGlass.shader" />

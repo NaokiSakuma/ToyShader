@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
 public class PileSnow : MonoBehaviour {
-
 	private float _snow;
 	void Update() {
 		_snow += 0.005f;

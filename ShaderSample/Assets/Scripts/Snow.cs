@@ -49,7 +49,8 @@ public class Snow : MonoBehaviour {
 		mesh.vertices = _vertices;
 		mesh.triangles = _triangles;
 		mesh.uv = _uvs;
-		mesh.bounds = new Bounds(Vector3.zero, Vector3.one);
+		// カメラの方向を取得するのに必要？
+		mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 99999999);
 		var mf = GetComponent<MeshFilter>();
 		mf.sharedMesh = mesh;
 	}
@@ -63,7 +64,7 @@ public class Snow : MonoBehaviour {
         renderer.material.SetVector("_MoveTotal", _move);
         renderer.material.SetVector("_CamUp", Camera.main.transform.up);
         renderer.material.SetVector("_TargetPosition", targetPosition);
-		float x = (Mathf.PerlinNoise(0f, Time.time*0.1f)-0.5f) * 10f;
+		float x = (Mathf.PerlinNoise(0f, Time.time * 0.1f) - 0.5f) * 10f;
 		float y = -2f;
 		float z = (Mathf.PerlinNoise(Time.time*0.1f, 0f)-0.5f) * 10f;
 		_move += new Vector3(x, y, z) * Time.deltaTime;
