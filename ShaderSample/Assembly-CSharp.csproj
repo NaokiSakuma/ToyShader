@@ -80,6 +80,7 @@
      <None Include="Assets\Shaders\ice.shader" />
      <None Include="Assets\Shaders\stencilObject.shader" />
      <None Include="Assets\Shaders\perlinNoise.shader" />
+     <None Include="Assets\Shaders\outline.shader" />
      <None Include="Assets\Shaders\snow.shader" />
      <None Include="Assets\Shaders\culling.shader" />
      <None Include="Assets\Shaders\stencilMask.shader" />
