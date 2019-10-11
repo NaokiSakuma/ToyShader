@@ -6,7 +6,6 @@
 			Tags{
 				"Queue" = "Geometry"
 				"RenderType" = "Opaque"
-				//"LightMode" = "ForwardBase"
 			}
 	Pass {
 			CGPROGRAM
@@ -38,7 +37,8 @@
 
 			fixed4 frag(v2f i) :Color {
 				fixed4 c = tex2D(_MainTex, i.uv);
-				//c.xyz = i.rgb.xyz;
+				// 色出力用
+				c.xyz = i.rgb.xyz;
 				return c;
 			}
 			ENDCG
