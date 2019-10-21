@@ -31,7 +31,7 @@
 			}
 
 			fixed4 frag(v2f i) : COLOR{
-				return UNITY_SAMPLE_DEPTH(tex2D(_CameraDepthTexture, i.uv));
+				return (tex2D(_CameraDepthTexture, i.uv));
 			}
 			ENDCG
 		}

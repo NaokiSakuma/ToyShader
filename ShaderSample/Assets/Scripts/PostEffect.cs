@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+[ExecuteInEditMode, RequireComponent(typeof(Renderer))]
+
 public class PostEffect : MonoBehaviour {
     [SerializeField]
     private Shader _shader;
