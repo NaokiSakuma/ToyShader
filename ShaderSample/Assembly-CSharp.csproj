@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\LODTest.cs" />
      <Compile Include="Assets\Scripts\MeshIndex.cs" />
      <Compile Include="Assets\Scripts\MeshTopologyPoints.cs" />
+     <Compile Include="Assets\Scripts\Monochrome.cs" />
      <Compile Include="Assets\Scripts\PileSnow.cs" />
      <Compile Include="Assets\Scripts\PostEffect.cs" />
      <Compile Include="Assets\Scripts\RotateObject.cs" />
@@ -92,6 +93,7 @@
      <None Include="Assets\Shaders\dissolve.shader" />
      <None Include="Assets\Shaders\blockNoise.shader" />
      <None Include="Assets\Shaders\randomNoise.shader" />
+     <None Include="Assets\Shaders\Monochrome.shader" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/Users/naoki.sakuma/ToyShader/ShaderSample/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
