@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\PostEffect.cs" />
      <Compile Include="Assets\Scripts\RotateObject.cs" />
      <Compile Include="Assets\Scripts\Snow.cs" />
+     <Compile Include="Assets\Scripts\WipeEffect.cs" />
      <None Include="Assets\Shaders\SimpleVertexFragment.shader" />
      <None Include="Assets\Shaders\textureBlend.shader" />
      <None Include="Assets\Shaders\moveRing.shader" />
@@ -79,6 +80,7 @@
      <None Include="Assets\Shaders\shakeVert.shader" />
      <None Include="Assets\Shaders\property.shader" />
      <None Include="Assets\Shaders\rimlighting.shader" />
+     <None Include="Assets\Shaders\wipeEffect.shader" />
      <None Include="Assets\Shaders\fallSnow.shader" />
      <None Include="Assets\Shaders\ice.shader" />
      <None Include="Assets\Shaders\stencilObject.shader" />
