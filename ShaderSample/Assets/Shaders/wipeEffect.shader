@@ -16,10 +16,11 @@
 			fixed4 frag(v2f_img i) : COLOR {
 				fixed4 c = tex2D(_MainTex, i.uv);
 				i.uv -= fixed2(0.5f, 0.5f);
-				i.uv.x *= 16.0f / 9.0f;
+				float4 projectionSpaceUpperRight = float4(1, 1, UNITY_NEAR_CLIP_VALUE, _ProjectionParams.y);
+				float4 viewSpaceUpperRight = mul(unity_CameraInvProjection, projectionSpaceUpperRight);
+				i.uv.x *= viewSpaceUpperRight.x / viewSpaceUpperRight.y;
 				if(distance(i.uv, fixed2(0, 0)) < _Radius) {
 					return c;
-					//discard;
 				}
 				return fixed4(0, 0, 0, 1);
 			}
