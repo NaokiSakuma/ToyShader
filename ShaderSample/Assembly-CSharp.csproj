@@ -61,9 +61,9 @@
      <Compile Include="Assets\Scripts\Monochrome.cs" />
      <Compile Include="Assets\Scripts\PileSnow.cs" />
      <Compile Include="Assets\Scripts\PostEffect.cs" />
+     <Compile Include="Assets\Scripts\PostEffects.cs" />
      <Compile Include="Assets\Scripts\RotateObject.cs" />
      <Compile Include="Assets\Scripts\Snow.cs" />
-     <Compile Include="Assets\Scripts\WipeEffect.cs" />
      <None Include="Assets\Shaders\SimpleVertexFragment.shader" />
      <None Include="Assets\Shaders\textureBlend.shader" />
      <None Include="Assets\Shaders\moveRing.shader" />

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WipeEffect : MonoBehaviour {
+public class PostEffects : MonoBehaviour {
 	[SerializeField]
 	Material _material;
 
