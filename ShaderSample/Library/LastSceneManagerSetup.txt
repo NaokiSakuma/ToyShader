@@ -1,12 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scene/TestScene.unity
-=======
-<<<<<<< HEAD
 - path: Assets/Scene/Transition.unity
-=======
-- path: 
->>>>>>> 1f3912dfbbb6ad6eb0dbc49c6f22cb064233ad12
->>>>>>> 2e7ab1795652c0192e757477cc1203d4d9dd9f1e
   isLoaded: 1
   isActive: 1

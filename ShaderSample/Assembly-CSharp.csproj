@@ -98,13 +98,20 @@
      <None Include="Assets\Shaders\stainedGlass.shader" />
      <None Include="Assets\Shaders\dissolve.shader" />
      <None Include="Assets\Shaders\blockNoise.shader" />
+     <None Include="Assets\Shaders\transition\transitionBlock.shader" />
      <None Include="Assets\Shaders\randomNoise.shader" />
      <None Include="Assets\Shaders\Monochrome.shader" />
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>/Users/naoki.sakuma/ToyShader/ShaderSample/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
  <HintPath>/Users/naoki.sakuma/ToyShader/ShaderSample/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>/Users/naoki.sakuma/ToyShader/ShaderSample/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>/Users/naoki.sakuma/ToyShader/ShaderSample/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
  <HintPath>/Users/naoki.sakuma/ToyShader/ShaderSample/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
