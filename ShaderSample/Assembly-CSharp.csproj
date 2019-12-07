@@ -98,7 +98,7 @@
      <None Include="Assets\Shaders\stainedGlass.shader" />
      <None Include="Assets\Shaders\dissolve.shader" />
      <None Include="Assets\Shaders\blockNoise.shader" />
-     <None Include="Assets\Shaders\transition\transitionBlock.shader" />
+     <None Include="Assets\Shaders\transition\transitionCircle.shader" />
      <None Include="Assets\Shaders\randomNoise.shader" />
      <None Include="Assets\Shaders\Monochrome.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
