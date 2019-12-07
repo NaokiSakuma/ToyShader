@@ -97,6 +97,7 @@
      <None Include="Assets\Shaders\moveRingFix.shader" />
      <None Include="Assets\Shaders\stainedGlass.shader" />
      <None Include="Assets\Shaders\dissolve.shader" />
+     <None Include="Assets\Shaders\transition\atodekesu.shader" />
      <None Include="Assets\Shaders\blockNoise.shader" />
      <None Include="Assets\Shaders\transition\transitionCircle.shader" />
      <None Include="Assets\Shaders\randomNoise.shader" />
