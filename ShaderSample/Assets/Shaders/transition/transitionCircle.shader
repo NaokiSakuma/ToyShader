@@ -57,36 +57,3 @@
         }
     }
 }
-
-
-Properties {
-    _MainTex ("Texture", 2D) = "white" {}
-    _CircleSideNum ("Circle Side Num", int) = 16
-    // 追加
-    _CircleValue ("Circle Value", Range(0, 1)) = 0
-    _Threshold ("Threshold", Range(0, 1)) = 0
-}
-
-// 省略
-
-sampler2D _MainTex;
-float4 _MainTex_ST;
-int _CircleSideNum;
-// 追加
-float _CircleValue;
-float _Threshold;
-
-// 省略
-
-fixed4 frag (v2f i) : SV_Target {
-    float2 div = float2(_CircleSideNum, _CircleSideNum * _ScreenParams.y / _ScreenParams.x);
-    float2 st = i.uv * div;
-    // 追加
-    float i_st = floor(st);
-    float value = _CircleValue - i_st.x * _Threshold;
-    float2 f_st = frac(st) * 2.0 - 1.0;
-    float ci = circle(f_st);
-    fixed4 col = 0.0;
-    col.a = step(value, ci);
-    return col;
-}
