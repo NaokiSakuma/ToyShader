@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/Transition.unity
+- path: Assets/Scene/Raymarching.unity
   isLoaded: 1
   isActive: 1

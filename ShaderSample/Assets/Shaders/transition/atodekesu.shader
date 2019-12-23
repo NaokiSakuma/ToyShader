@@ -74,7 +74,7 @@
 						float2 f = (div - 1.0) * (0.5 - sg * 0.5) + (i_st + float2(i, j)) * sg;
 						float v = val - dot(f, abs(dir)) * w;
  
-						float ci = circle(f_st - float2(2.0 * i, 2.0 * j));
+						float ci = circle(f_st /*- float2(2.0 * i, 2.0 * j)*/);
  
 						a = min(a, step(v, ci));
 						//a = min(a, smoothstep(v - 0.1, v, ci));
