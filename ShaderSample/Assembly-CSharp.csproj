@@ -88,10 +88,12 @@
      <None Include="Assets\Shaders\ice.shader" />
      <None Include="Assets\Shaders\transitionSquare.shader" />
      <None Include="Assets\Shaders\stencilObject.shader" />
+     <None Include="Assets\Shaders\Drawing\Drawing_2.shader" />
      <None Include="Assets\Shaders\perlinNoise.shader" />
      <None Include="Assets\Shaders\outline.shader" />
      <None Include="Assets\Shaders\snow.shader" />
      <None Include="Assets\Shaders\culling.shader" />
+     <None Include="Assets\Shaders\Drawing\Drawing_1.shader" />
      <None Include="Assets\Shaders\stencilMask.shader" />
      <None Include="Assets\Shaders\valueNoise.shader" />
      <None Include="Assets\Shaders\moveRingFix.shader" />
