@@ -69,6 +69,7 @@
      <None Include="Assets\Shaders\gradationPoints.shader" />
      <None Include="Assets\Shaders\sepiaEffect.shader" />
      <None Include="Assets\Shaders\wipeCircle.shader" />
+     <None Include="Assets\Softshadaw_Raymarching\RayMarchingSoftshadaw.shader" />
      <None Include="Assets\Shaders\uvVertex.shader" />
      <None Include="Assets\Shaders\Raymarching\simpleRaymarching.shader" />
      <None Include="Assets\Shaders\LOD.shader" />
@@ -91,6 +92,7 @@
      <None Include="Assets\Shaders\Drawing\Drawing_1.shader" />
      <None Include="Assets\Shaders\stencilMask.shader" />
      <None Include="Assets\Shaders\transition\transitionCircleCenter.shader" />
+     <None Include="Assets\Shaders\Raymarching\softShadowRaymarching.shader" />
      <None Include="Assets\Shaders\valueNoise.shader" />
      <None Include="Assets\Shaders\moveRingFix.shader" />
      <None Include="Assets\Shaders\stainedGlass.shader" />
