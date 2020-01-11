@@ -29,24 +29,33 @@
 				float4 vertex : SV_POSITION;
 			};
 
+			// 球の大きさ
 			float _Radius;
+			// ブラーの強さ
 			float _BlurShadow;
 
+			// 中心との距離から球を描画
 			float sphere(float3 pos) {
                 return length(pos) - _Radius;
             }
 
+			// planeの描画
 			float plane(float3 pos) {
+				// planeの傾き
 				float4 n = float4(0.0, 0.8, 0.0, 1.0);
 				return dot(pos, n.xyz) + n.w;
 			}
 
+			// planeと球との距離
 			float getDist(float3 pos) {
 				return min(plane(pos), sphere(pos));
 			}
 
+			// 法線を取得
 			float3 getNormal(float3 pos) {
+				// δ
 				float d = 0.001;
+				// 法線の公式より、各変数の偏微分から計算
 				return normalize(float3(
 					getDist(pos + float3(d, 0, 0)) - getDist(pos + float3(-d, 0, 0)),
 					getDist(pos + float3(0, d, 0)) - getDist(pos + float3(0, -d, 0)),
@@ -62,12 +71,15 @@
 				float shadowCoef = 0.5;
 				for (float t = 0.0; t < 50.0; t++) {
 					marchingDist = getDist(pos + lightDir * c);
+					// hitしたら影を落とす
 					if (marchingDist < 0.001) {
 						return shadowCoef;
 					}
+					// 反影の計算
 					r = min(r, marchingDist * _BlurShadow / c);
 					c += marchingDist;
 				}
+				// hitしなかった場合、反影を描画
 				return 1.0 - shadowCoef + r * shadowCoef;
 			}
 
@@ -81,22 +93,30 @@
 
 			fixed4 frag(v2f i) : SV_Target {
 				float3 pos = i.pos.xyz;
+				// レイのベクトル
 				float3 rayDir = normalize(pos.xyz - _WorldSpaceCameraPos);
 				const int StepNum = 30;
 
 				for (int j = 0; j < StepNum; j++) {
+					// レイを進める距離
 					float marchingDist = getDist(pos);
+					// 衝突検知
 					if (marchingDist < 0.001) {
 						float3 lightDir = _WorldSpaceLightPos0.xyz;
 						float3 normal = getNormal(pos);
 						float3 lightColor = _LightColor0;
+						// レイがオブジェクトにめり込むのを防ぐ
 						float shadow = genShadow(pos + normal * 0.001, lightDir);
+						// 内積によって色を変化させる
 						fixed4 col = fixed4(lightColor * max(dot(normal, lightDir), 0) * max(0.5, shadow), 1.0);
+						// 環境光のオフセット
 						col.rgb += fixed3(0.2f, 0.2f, 0.2f);
 						return col;
 					}
+					// レイを進める
 				    pos.xyz += marchingDist * rayDir.xyz;
 				}
+				// stepNum回レイを進めても衝突しなかったらピクセルを透明にする
 			    return 0;
 			}
 			ENDCG
