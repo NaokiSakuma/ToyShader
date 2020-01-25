@@ -52,18 +52,8 @@
             // 正方形の描画
 			float box(float3 pos) {
 				float3 b = _Radius;
-                // 計算の簡略化のためにabs
-                // 原点から(1,1)と(-1,-1)に向かう2つのベクトルの距離は同じなため
 				float3 d = abs(pos) - b;
-                // 
-
-
-                // legthの第2引数の0.0は原点
-                // こっちが誤り、ただ四角形は同じ
-                //return length(max(abs(pos) - b, 0.0));
-                // こっちが正しい
-				//return length(max(d, 0.0)) + min(max(d.x, max(d.y, d.z)), 0.0);
-                return abs(max(d.x, max(d.y, d.z)));
+				return length(max(d, 0.0)) + min(max(d.x, max(d.y, d.z)), 0.0);
 			}
 
             // planeと球との距離
@@ -71,8 +61,7 @@
                 // 正弦波で線形補完
                 float time = (sin(_Time.y * _Speed) + 1.0f) * 0.5f;
                 float morph = lerp(box(pos), sphere(pos), time);
-                //return min(plane(pos), morph);
-                return min(plane(pos), box(pos));
+                return min(plane(pos), morph);
             }
 
 			// 法線を取得

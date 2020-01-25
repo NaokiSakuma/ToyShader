@@ -6,6 +6,6 @@ public class PileSnow : MonoBehaviour {
 		_snow += 0.005f;
 		var renderer = GetComponent<Renderer>();
 		_snow = Mathf.Clamp(_snow, 0, 3);
-		renderer.material.SetFloat("_Snow", _snow);
+		renderer.material.SetFloat("_SnowPileValue", _snow);
 	}
 }
