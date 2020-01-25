@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class Snow : MonoBehaviour {
 	private const int SNOW_NUM = 16000;
@@ -13,20 +12,23 @@ public class Snow : MonoBehaviour {
 	private Vector3 _move;
 
 	void Start() {
-		_range = 16.0f;
-		_rangeR = 1.0f / _range;
-		_vertices = new Vector3[SNOW_NUM * 4];
+// 雪を降らせる範囲
+_range = 16.0f;
+// _rangeの逆数
+_rangeR = 1.0f / _range;
+// 雪の頂点
+_vertices = new Vector3[SNOW_NUM * 4];
 
-		for (int i = 0; i < SNOW_NUM; i++) {
-			float x = Random.Range(-_range, _range);
-			float y = Random.Range(-_range, _range);
-			float z = Random.Range(-_range, _range);
-			var point = new Vector3(x, y, z);
-			_vertices[i * 4 + 0] = point;
-			_vertices[i * 4 + 1] = point;
-			_vertices[i * 4 + 2] = point;
-			_vertices[i * 4 + 3] = point;
-		}
+for (int i = 0; i < SNOW_NUM; i++) {
+	float x = Random.Range(-_range, _range);
+	float y = Random.Range(-_range, _range);
+	float z = Random.Range(-_range, _range);
+	var point = new Vector3(x, y, z);
+	_vertices[i * 4 + 0] = point;
+	_vertices[i * 4 + 1] = point;
+	_vertices[i * 4 + 2] = point;
+	_vertices[i * 4 + 3] = point;
+}
 		_triangles = new int[SNOW_NUM * 6];
 		for (int i = 0; i < SNOW_NUM; i++) {
 			_triangles[i * 6 + 0] = i * 4 + 0;

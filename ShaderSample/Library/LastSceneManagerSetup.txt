@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scene/Raymarching.unity
+- path: Assets/Scene/SnowScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
