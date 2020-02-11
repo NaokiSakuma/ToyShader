@@ -44,6 +44,8 @@
 				float3 trip;
 				float3 mv = v.vertex.xyz;
 				mv += _MoveTotal;
+				// リピート数を計算する
+				// mv + 2 * _Range * n回 < _TargetPosition + _Rangeより
 				trip = floor(((target - mv) * _RangeR + 1) * 0.5f);
 				trip *= (_Range * 2);
 				mv += trip;
@@ -51,17 +53,23 @@
 				float3 diff = _CamUp * _Size;
 				float3 finalPosition;
 				float3 tv0 = mv;
-                tv0.x += sin(mv.x*0.2) * sin(mv.y*0.3) * sin(mv.x*0.9) * sin(mv.y*0.8);
-                tv0.z += sin(mv.x*0.1) * sin(mv.y*0.2) * sin(mv.x*0.8) * sin(mv.y*1.2);
-
+				// 雪を揺らす
+				tv0.x += sin(mv.x*0.2) * sin(mv.y*0.3) * sin(mv.x*0.9) * sin(mv.y*0.8);
+				tv0.z += sin(mv.x*0.1) * sin(mv.y*0.2) * sin(mv.x*0.8) * sin(mv.y*1.2);
+				// 雪をビルボードさせる
+				// 視線ベクトル
 				float3 eyeVector = ObjSpaceViewDir(float4(tv0, 0));
+				// カメラのx軸ベクトル
 				float3 sideVector = normalize(cross(eyeVector, diff));
+				// 雪のx軸の計算
 				tv0 += (v.texcoord.x - 0.5f) * sideVector * _Size;
+				// 雪のy軸の計算
 				tv0 += (v.texcoord.y - 0.5f) * diff;
 				finalPosition = tv0;
 
 				v2f o;
 				o.pos = UnityObjectToClipPos(finalPosition);
+				// 高速化
 				o.uv = MultiplyUV(UNITY_MATRIX_TEXTURE0, v.texcoord);
 				return o;
 			}
