@@ -54,12 +54,12 @@
      <Compile Include="Assets\Scripts\PileSnow.cs" />
      <Compile Include="Assets\Scripts\PostEffect.cs" />
      <Compile Include="Assets\Scripts\PostEffects.cs" />
+     <Compile Include="Assets\Scripts\RatationCtrl.cs" />
      <Compile Include="Assets\Scripts\RotateObject.cs" />
      <Compile Include="Assets\Scripts\Snow.cs" />
      <None Include="Assets\Shaders\Raymarching\motionRaymarching.shader" />
      <None Include="Assets\Shaders\SimpleVertexFragment.shader" />
      <None Include="Assets\Shaders\textureBlend.shader" />
-     <None Include="Assets\Shaders\Drawing\NewUnlitShader.shader" />
      <None Include="Assets\Shaders\moveRing.shader" />
      <None Include="Assets\Shaders\shake.shader" />
      <None Include="Assets\Shaders\depthEffect.shader" />
@@ -68,6 +68,7 @@
      <None Include="Assets\Shaders\texture.shader" />
      <None Include="Assets\Shaders\toon.shader" />
      <None Include="Assets\Shaders\gradationPoints.shader" />
+     <None Include="Assets\Shaders\Normalmap\OcclusionMap.shader" />
      <None Include="Assets\Shaders\sepiaEffect.shader" />
      <None Include="Assets\Shaders\wipeCircle.shader" />
      <None Include="Assets\Softshadaw_Raymarching\RayMarchingSoftshadaw.shader" />
@@ -84,6 +85,7 @@
      <None Include="Assets\Shaders\snow\fallSnow.shader" />
      <None Include="Assets\Shaders\ice.shader" />
      <None Include="Assets\Shaders\transitionSquare.shader" />
+     <None Include="Assets\Shaders\Normalmap\OcclusionMap_3.shader" />
      <None Include="Assets\Shaders\stencilObject.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_2.shader" />
      <None Include="Assets\Shaders\perlinNoise.shader" />
@@ -96,6 +98,7 @@
      <None Include="Assets\Shaders\transition\transitionCircleCenter.shader" />
      <None Include="Assets\Shaders\Raymarching\softShadowRaymarching.shader" />
      <None Include="Assets\Shaders\snow\snowPile.shader" />
+     <None Include="Assets\Shaders\Normalmap\OcclusionMap_1.shader" />
      <None Include="Assets\Shaders\valueNoise.shader" />
      <None Include="Assets\Shaders\Template\fragmentTemplate.shader" />
      <None Include="Assets\Shaders\moveRingFix.shader" />
@@ -103,6 +106,7 @@
      <None Include="Assets\Shaders\dissolve.shader" />
      <None Include="Assets\Shaders\transition\atodekesu.shader" />
      <None Include="Assets\Shaders\blockNoise.shader" />
+     <None Include="Assets\Shaders\Normalmap\OcclusionMap_2.shader" />
      <None Include="Assets\Shaders\transition\transitionCircle.shader" />
      <None Include="Assets\Shaders\randomNoise.shader" />
      <None Include="Assets\Shaders\Monochrome.shader" />
