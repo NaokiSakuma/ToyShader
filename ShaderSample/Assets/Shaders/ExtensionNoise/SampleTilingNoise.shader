@@ -35,7 +35,7 @@
             }
 
             fixed4 frag (v2f i) : SV_Target {
-                fixed p = valueNoise(i.uv, _NoiseSizeScroll.xy);
+                fixed p = perlinNoise(i.uv, _NoiseSizeScroll.xy);
                 return fixed4(p, p, p, 1);
             }
             ENDCG
