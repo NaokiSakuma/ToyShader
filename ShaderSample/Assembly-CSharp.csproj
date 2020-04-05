@@ -73,6 +73,7 @@
      <None Include="Assets\Shaders\sepiaEffect.shader" />
      <None Include="Assets\Shaders\wipeCircle.shader" />
      <None Include="Assets\Softshadaw_Raymarching\RayMarchingSoftshadaw.shader" />
+     <None Include="Assets\Shaders\ExtensionNoise\GradationNoise.shader" />
      <None Include="Assets\Shaders\uvVertex.shader" />
      <None Include="Assets\Shaders\Raymarching\simpleRaymarching.shader" />
      <None Include="Assets\Shaders\LOD.shader" />
@@ -84,7 +85,6 @@
      <None Include="Assets\Shaders\rimlighting.shader" />
      <None Include="Assets\Shaders\wipeEffect.shader" />
      <None Include="Assets\Shaders\snow\fallSnow.shader" />
-     <None Include="Assets\Shaders\ExtensionNoise\Fuga.shader" />
      <None Include="Assets\Shaders\ice.shader" />
      <None Include="Assets\Shaders\transitionSquare.shader" />
      <None Include="Assets\Shaders\Normalmap\OcclusionMap_3.shader" />
@@ -92,7 +92,6 @@
      <None Include="Assets\Shaders\Drawing\Drawing_2.shader" />
      <None Include="Assets\Shaders\perlinNoise.shader" />
      <None Include="Assets\Shaders\outline.shader" />
-     <None Include="Assets\Shaders\ExtensionNoise\hoge.shader" />
      <None Include="Assets\Shaders\Normalmap\Normalmap.shader" />
      <None Include="Assets\Shaders\snow\snow.shader" />
      <None Include="Assets\Shaders\culling.shader" />
@@ -100,6 +99,7 @@
      <None Include="Assets\Shaders\stencilMask.shader" />
      <None Include="Assets\Shaders\transition\transitionCircleCenter.shader" />
      <None Include="Assets\Shaders\Raymarching\softShadowRaymarching.shader" />
+     <None Include="Assets\Shaders\ExtensionNoise\GradationNoiseWind.shader" />
      <None Include="Assets\Shaders\snow\snowPile.shader" />
      <None Include="Assets\Shaders\Normalmap\OcclusionMap_1.shader" />
      <None Include="Assets\Shaders\valueNoise.shader" />
@@ -112,6 +112,7 @@
      <None Include="Assets\Shaders\transition\atodekesu.shader" />
      <None Include="Assets\Shaders\blockNoise.shader" />
      <None Include="Assets\Shaders\Normalmap\OcclusionMap_2.shader" />
+     <None Include="Assets\Shaders\ExtensionNoise\DistortionNoise.shader" />
      <None Include="Assets\Shaders\transition\transitionCircle.shader" />
      <None Include="Assets\Shaders\randomNoise.shader" />
      <None Include="Assets\Shaders\Monochrome.shader" />
