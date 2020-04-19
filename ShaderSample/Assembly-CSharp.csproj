@@ -76,6 +76,7 @@
      <None Include="Assets\Shaders\ExtensionNoise\GradationNoise.shader" />
      <None Include="Assets\Shaders\uvVertex.shader" />
      <None Include="Assets\Shaders\Raymarching\simpleRaymarching.shader" />
+     <None Include="Assets\Shaders\ExtensionNoise\BackgroundNoise.shader" />
      <None Include="Assets\Shaders\LOD.shader" />
      <None Include="Assets\Baker House\Readme.txt" />
      <None Include="Assets\Shaders\translucent.shader" />
@@ -85,6 +86,7 @@
      <None Include="Assets\Shaders\rimlighting.shader" />
      <None Include="Assets\Shaders\wipeEffect.shader" />
      <None Include="Assets\Shaders\snow\fallSnow.shader" />
+     <None Include="Assets\Shaders\outline\cgincludePass.shader" />
      <None Include="Assets\Shaders\ice.shader" />
      <None Include="Assets\Shaders\transitionSquare.shader" />
      <None Include="Assets\Shaders\Normalmap\OcclusionMap_3.shader" />
@@ -97,6 +99,7 @@
      <None Include="Assets\Shaders\culling.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_1.shader" />
      <None Include="Assets\Shaders\stencilMask.shader" />
+     <None Include="Assets\Shaders\outline\outlineImageBackup.shader" />
      <None Include="Assets\Shaders\transition\transitionCircleCenter.shader" />
      <None Include="Assets\Shaders\Raymarching\softShadowRaymarching.shader" />
      <None Include="Assets\Shaders\ExtensionNoise\GradationNoiseWind.shader" />
@@ -104,6 +107,7 @@
      <None Include="Assets\Shaders\Normalmap\OcclusionMap_1.shader" />
      <None Include="Assets\Shaders\valueNoise.shader" />
      <None Include="Assets\Shaders\Template\fragmentTemplate.shader" />
+     <None Include="Assets\Shaders\outline\outlineImage.shader" />
      <None Include="Assets\Shaders\moveRingFix.shader" />
      <None Include="Assets\Shaders\stainedGlass.shader" />
      <None Include="Assets\Shaders\dissolve.shader" />
