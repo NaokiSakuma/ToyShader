@@ -67,6 +67,7 @@
      <None Include="Assets\Shaders\ExtensionNoise\extensionNoiseUtil.cginc" />
      <None Include="Assets\Shaders\waterSurface.shader" />
      <None Include="Assets\Shaders\texture.shader" />
+     <None Include="Assets\Shaders\outline\rotateOutline.shader" />
      <None Include="Assets\Shaders\toon.shader" />
      <None Include="Assets\Shaders\gradationPoints.shader" />
      <None Include="Assets\Shaders\Normalmap\OcclusionMap.shader" />
