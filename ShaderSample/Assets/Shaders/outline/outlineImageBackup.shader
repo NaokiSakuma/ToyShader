@@ -133,6 +133,11 @@
         half4 blurColor = _BlurColor;
         blurColor.a *= blurAlpha * IN.color.a;
         blurColor.a *= step(0.001, blurSize.x);
+        //         // くり抜き
+        // half texAlpha = tex2D(_MainTex, IN.texcoord).a;
+        // if (texAlpha > 0) {
+        //     discard;
+        // }
         blurColor *= _BlurIntensitive;
         return blurColor;
     }
