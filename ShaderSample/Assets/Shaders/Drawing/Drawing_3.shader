@@ -1,4 +1,4 @@
-﻿Shader "Unlit/Drawing_2" {
+﻿Shader "Unlit/Drawing_3" {
     Properties {
         _MainTex ("Texture", 2D) = "white" {}
     }
@@ -33,8 +33,9 @@
             }
 
             fixed4 frag (v2f i) : SV_Target {
-                float4 col = distance(float2(0.5, 0.5), i.uv);
-                col = step(abs(sin(_Time.y)) * 0.4, col);
+                float4 col = distance(float2(0.5, 0.5), i.uv) * 30;
+                col = abs(sin(col));
+                col = step(0.5, col);
                 return col;
             }
             ENDCG
