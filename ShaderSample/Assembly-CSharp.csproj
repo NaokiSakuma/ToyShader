@@ -91,8 +91,10 @@
      <None Include="Assets\Shaders\snow\fallSnow.shader" />
      <None Include="Assets\Shaders\outline\cgincludePass.shader" />
      <None Include="Assets\Shaders\ice.shader" />
+     <None Include="Assets\Shaders\Drawing\Drawing_6.shader" />
      <None Include="Assets\Shaders\transitionSquare.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_5.shader" />
+     <None Include="Assets\Shaders\Drawing\Drawing_7.shader" />
      <None Include="Assets\Shaders\Normalmap\OcclusionMap_3.shader" />
      <None Include="Assets\Shaders\stencilObject.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_2.shader" />
