@@ -10,6 +10,10 @@
         _OffSet("xy : offset, zw : notUseing", Vector) = (0.5,0.5,0,0)
 
         _DebugScale("Scale", Range(0, 2)) = 1
+        
+        _DebugDist("Debug Dist", Range(0,10)) = 1
+        _DOffSet("xy : offset, zw : notUseing", Vector) = (0.5,0.5,0,0)
+
     }
 
     CGINCLUDE
@@ -43,6 +47,8 @@
     int _OutlineNum;
     fixed4 _OffSet;
     float _DebugScale;
+    float _DebugDist;
+    fixed4 _DOffSet;
 
     static const float PI = 3.14159265;
 
@@ -96,9 +102,14 @@
         float2 offsetUv = v.texcoord - _OffSet.xy;
         // アウトラインの本数
         int addStep = -_OutlineNum + 1;
+        float totalAngle = 0;
+        float2 totalOffsetUV = offsetUv;
+        half rotateRad;
         for (int i = 0; i < _OutlineNum; i++) {
-            half rotateRad = (PI / _OutlineNum) * i + _Time.y * _Speed;
+            rotateRad = (PI / _OutlineNum) * i + _Time.y * _Speed;
             addStep += RotateStep(rotateRad, offsetUv);
+
+
         }
         offsetUv *= (offsetUv * addStep);
         // アルファ値を0or1に
@@ -109,14 +120,61 @@
         blurColor.a *= offsetUv;
         blurColor.a *= blurAlpha;
 
+        // 内側に円を出す
         float2 uv = v.texcoord;
         float2 pivot = float2(0.5, 0.5);
         float2 r = (uv - pivot) * (1 / _DebugScale);
         uv = r + pivot;
         half4 color = (tex2D(_MainTex, uv));
         if (color.a > 0) {
-            discard;
+            // 描画市内系処理
+            // discard;
+            //return fixed4(1,1,1,1);
         }
+
+        // テクスチャとscaleの間
+        float2 uv1 = v.texcoord;
+        float2 pivot1 = float2(0.5, 0.5);
+        float betweenScale = _DebugScale + ((1.0 - _DebugScale) / 2.0);
+        float2 r1 = (uv1 - pivot1) * (1 / betweenScale);
+        uv1 = r1 + pivot1;
+
+
+
+        // _Angle込で何度回転しているか
+        // 中心を取得、_Angleを込みで何度回転しているか
+        // half totalRad = rotateRad + ((_Angle / 2 * 360) * PI / 180);
+        // half2x2 rotate = half2x2(cos(totalRad), -sin(totalRad), sin(totalRad), cos(totalRad));
+        // // 怪しい
+        // // timeAngle回転させたときの座標
+        // uv1 = mul(rotate, uv1);
+        // // timeAngle回転させたときの座標
+        // uv1 = mul(rotate, uv1);
+
+
+        // half4 color1 = (tex2D(_MainTex, uv1));
+        // if (color1.a > 0) {
+        //     // 描画市内系処理
+        //     // discard;
+        //     //return fixed4(0,1,1,1);
+        // }
+
+
+
+        float2 center = _DOffSet;//float2(0.25,0.5);
+        center -= float2(0.5,0.5);
+        //center -= _DOffSet.xy;
+        half totalRad = -(rotateRad + (_Angle * 360 * PI / 180) / 4);
+        half2x2 rotate = half2x2(cos(totalRad), -sin(totalRad), sin(totalRad), cos(totalRad));
+        center = mul(rotate, center);
+        center = mul(rotate, center);
+        center += float2(0.5,0.5);
+         // _DebugDistで調整してもよい
+        float dist = (1 - distance(center, v.texcoord) * sin(_Time.w) * 5);
+        if (blurColor.a > 0) {
+            blurColor.a = dist;
+        }
+
         return blurColor;
     }
 
