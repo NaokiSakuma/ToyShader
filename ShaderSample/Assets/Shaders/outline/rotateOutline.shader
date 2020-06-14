@@ -6,8 +6,10 @@
 
         _Speed ("Speed", float) = 1
         _Angle ("Angle", Range(0, 1)) = 1
-        _OutlineNum ("Outline Num", Range(1, 10)) = 1
+        [IntRange] _OutlineNum ("Outline Num", Range(1, 10)) = 1
         _OffSet("xy : offset, zw : notUseing", Vector) = (0.5,0.5,0,0)
+
+        _DebugScale("Scale", Range(0, 2)) = 1
     }
 
     CGINCLUDE
@@ -40,6 +42,7 @@
     half _Angle;
     int _OutlineNum;
     fixed4 _OffSet;
+    float _DebugScale;
 
     static const float PI = 3.14159265;
 
@@ -101,10 +104,19 @@
         // アルファ値を0or1に
         offsetUv = step(offsetUv, 0);
         // sinカーブでα値変動
-        half timeAlpha = (sin(_Time.y) + 1) / 2;
-        offsetUv *= timeAlpha;
+        //half timeAlpha = (sin(_Time.y) + 1) / 2;
+        //offsetUv *= timeAlpha;
         blurColor.a *= offsetUv;
         blurColor.a *= blurAlpha;
+
+        float2 uv = v.texcoord;
+        float2 pivot = float2(0.5, 0.5);
+        float2 r = (uv - pivot) * (1 / _DebugScale);
+        uv = r + pivot;
+        half4 color = (tex2D(_MainTex, uv));
+        if (color.a > 0) {
+            discard;
+        }
         return blurColor;
     }
 
@@ -133,18 +145,25 @@
         Blend SrcAlpha OneMinusSrcAlpha
 
         // アウトラインの描画
-        Pass {
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag_blur
-            ENDCG
-        }
+        // Pass {
+        //     CGPROGRAM
+        //     #pragma vertex vert
+        //     #pragma fragment frag_blur
+        //     ENDCG
+        // }
 
         // テクスチャの描画
         Pass {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            ENDCG
+        }
+
+        Pass {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag_blur
             ENDCG
         }
     }
