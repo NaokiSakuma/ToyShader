@@ -78,6 +78,7 @@
      <None Include="Assets\Softshadaw_Raymarching\RayMarchingSoftshadaw.shader" />
      <None Include="Assets\Shaders\ExtensionNoise\GradationNoise.shader" />
      <None Include="Assets\Shaders\uvVertex.shader" />
+     <None Include="Assets\Shaders\Figure\MoveFigure.shader" />
      <None Include="Assets\Shaders\Raymarching\simpleRaymarching.shader" />
      <None Include="Assets\Shaders\ExtensionNoise\BackgroundNoise.shader" />
      <None Include="Assets\Shaders\LOD.shader" />
