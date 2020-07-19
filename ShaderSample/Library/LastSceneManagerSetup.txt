@@ -1,5 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Figure.unity
+- path: Assets/Scenes/FlowScene.unity
   isLoaded: 1
   isActive: 1
-  isSubScene: 0
