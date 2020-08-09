@@ -10,6 +10,7 @@
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            // 可能な限り精度を下げて実行時間を最小限に抑えるオプション
             #pragma fragmentoption ARB_precision_hint_fastest
 
             #include "UnityCG.cginc"
@@ -39,12 +40,15 @@
             fixed4 frag (v2f i) : SV_Target {
                 fixed4 col = 0;
 
+                // メモリサイズを大きくする代わりに高速にする
                 [unroll]
+                // 左右へのサンプリング
                 for (int j = samplingCount - 1; j > 0; j--) {
                     col += tex2D(_MainTex, i.uv - (_Offset.xy * j)) * _Weights[j];
                 }
 
                 [unroll]
+                // 上下へのサンプリング
                 for (int j = 0; j < samplingCount; j++) {
                     col += tex2D(_MainTex, i.uv + (_Offset.xy * j)) * _Weights[j];
                 }
