@@ -46,8 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ChangeColor.cs" />
+     <Compile Include="Assets\Scripts\CommandBuffer\MoveObject.cs" />
      <Compile Include="Assets\Scripts\CommandBuffer\PostEffectCommandBuffer.cs" />
      <Compile Include="Assets\Scripts\Dissolve.cs" />
+     <Compile Include="Assets\Scripts\GaussianBlur\BlurEffect.cs" />
      <Compile Include="Assets\Scripts\GaussianBlur\GaussianBlur.cs" />
      <Compile Include="Assets\Scripts\LODTest.cs" />
      <Compile Include="Assets\Scripts\MeshIndex.cs" />
@@ -62,6 +64,7 @@
      <None Include="Assets\Shaders\Raymarching\motionRaymarching.shader" />
      <None Include="Assets\Shaders\SimpleVertexFragment.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_9.shader" />
+     <None Include="Assets\Shaders\GaussianBlur\GaussianUI.shader" />
      <None Include="Assets\Shaders\textureBlend.shader" />
      <None Include="Assets\Shaders\moveRing.shader" />
      <None Include="Assets\Shaders\shake.shader" />
@@ -106,6 +109,7 @@
      <None Include="Assets\Shaders\Normalmap\OcclusionMap_3.shader" />
      <None Include="Assets\Shaders\Figure\Figure.shader" />
      <None Include="Assets\Shaders\GaussianBlur\GaussianBlur.shader" />
+     <None Include="Assets\Shaders\GaussianBlur\GaussianUIBlur.shader" />
      <None Include="Assets\Shaders\stencilObject.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_2.shader" />
      <None Include="Assets\Shaders\perlinNoise.shader" />
