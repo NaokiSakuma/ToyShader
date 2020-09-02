@@ -61,6 +61,8 @@
      <Compile Include="Assets\Scripts\RatationCtrl.cs" />
      <Compile Include="Assets\Scripts\RotateObject.cs" />
      <Compile Include="Assets\Scripts\Snow.cs" />
+     <Compile Include="Assets\Shaders\Noise\FlameNoise.cs" />
+     <Compile Include="Assets\Shaders\Noise\RightLeftNoise.cs" />
      <None Include="Assets\Shaders\Raymarching\motionRaymarching.shader" />
      <None Include="Assets\Shaders\SimpleVertexFragment.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_9.shader" />
@@ -89,6 +91,7 @@
      <None Include="Assets\Shaders\GaussianBlur\GaussianBlurUnlit.shader" />
      <None Include="Assets\Shaders\Raymarching\simpleRaymarching.shader" />
      <None Include="Assets\Shaders\ExtensionNoise\BackgroundNoise.shader" />
+     <None Include="Assets\Shaders\Noise\FlameNoise.shader" />
      <None Include="Assets\Shaders\LOD.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_10.shader" />
      <None Include="Assets\Baker House\Readme.txt" />
@@ -129,6 +132,7 @@
      <None Include="Assets\Shaders\Normalmap\OcclusionMap_1.shader" />
      <None Include="Assets\Shaders\valueNoise.shader" />
      <None Include="Assets\Shaders\Matcap\MatcapBlend.shader" />
+     <None Include="Assets\Shaders\Noise\RightLeftNoise.shader" />
      <None Include="Assets\Shaders\Template\fragmentTemplate.shader" />
      <None Include="Assets\Shaders\outline\outlineImage.shader" />
      <None Include="Assets\Shaders\CommandBuffer\StencilLambert.shader" />
