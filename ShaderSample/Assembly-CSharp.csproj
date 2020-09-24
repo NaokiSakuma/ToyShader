@@ -60,7 +60,17 @@
      <Compile Include="Assets\Scripts\PostEffects.cs" />
      <Compile Include="Assets\Scripts\RatationCtrl.cs" />
      <Compile Include="Assets\Scripts\RotateObject.cs" />
+     <Compile Include="Assets\Scripts\SerializedObject\FugaParam.cs" />
+     <Compile Include="Assets\Scripts\SerializedObject\HogeParam.cs" />
+     <Compile Include="Assets\Scripts\SerializedObject\ListParam.cs" />
+     <Compile Include="Assets\Scripts\SerializedObject\SerializedObjectListTest.cs" />
+     <Compile Include="Assets\Scripts\SerializedObject\SerializedObjectTest.cs" />
      <Compile Include="Assets\Scripts\Snow.cs" />
+     <Compile Include="Assets\Shaders\EffectUITest\Scripts\EffectEditor.cs" />
+     <Compile Include="Assets\Shaders\EffectUITest\Scripts\EffectUI.cs" />
+     <Compile Include="Assets\Shaders\EffectUITest\Scripts\MaterialDirtyScope.cs" />
+     <Compile Include="Assets\Shaders\EffectUITest\Scripts\ParameterTexture.cs" />
+     <Compile Include="Assets\Shaders\MoveImage\Scripts\OnMouseMoveImage.cs" />
      <Compile Include="Assets\Shaders\Noise\FlameNoise.cs" />
      <Compile Include="Assets\Shaders\Noise\RightLeftNoise.cs" />
      <None Include="Assets\Shaders\Raymarching\motionRaymarching.shader" />
@@ -75,6 +85,7 @@
      <None Include="Assets\Shaders\ExtensionNoise\extensionNoiseUtil.cginc" />
      <None Include="Assets\Shaders\waterSurface.shader" />
      <None Include="Assets\Shaders\texture.shader" />
+     <None Include="Assets\Shaders\MoveImage\Shaders\OnMouseMoveImage.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_3.shader" />
      <None Include="Assets\Shaders\outline\rotateOutline.shader" />
      <None Include="Assets\Shaders\toon.shader" />
@@ -107,6 +118,7 @@
      <None Include="Assets\Shaders\ice.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_6.shader" />
      <None Include="Assets\Shaders\transitionSquare.shader" />
+     <None Include="Assets\Shaders\EffectUITest\Shaders\EffectUI.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_5.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_7.shader" />
      <None Include="Assets\Shaders\Normalmap\OcclusionMap_3.shader" />
@@ -124,6 +136,7 @@
      <None Include="Assets\Shaders\Drawing\Drawing_1.shader" />
      <None Include="Assets\Shaders\stencilMask.shader" />
      <None Include="Assets\Shaders\outline\outlineImageBackup.shader" />
+     <None Include="Assets\Shaders\EffectUITest\Shaders\EffectUISprite.cginc" />
      <None Include="Assets\Shaders\transition\transitionCircleCenter.shader" />
      <None Include="Assets\Shaders\Raymarching\softShadowRaymarching.shader" />
      <None Include="Assets\Shaders\ExtensionNoise\GradationNoiseWind.shader" />
@@ -134,6 +147,7 @@
      <None Include="Assets\Shaders\Matcap\MatcapBlend.shader" />
      <None Include="Assets\Shaders\Noise\RightLeftNoise.shader" />
      <None Include="Assets\Shaders\Template\fragmentTemplate.shader" />
+     <None Include="Assets\Shaders\EffectUITest\Shaders\EffectUI.cginc" />
      <None Include="Assets\Shaders\outline\outlineImage.shader" />
      <None Include="Assets\Shaders\CommandBuffer\StencilLambert.shader" />
      <None Include="Assets\Shaders\moveRingFix.shader" />
@@ -150,6 +164,7 @@
      <None Include="Assets\Shaders\randomNoise.shader" />
      <None Include="Assets\Shaders\Monochrome.shader" />
      <None Include="Assets\Shaders\Drawing\Drawing_8.shader" />
+     <None Include="Assets\Shaders\Template\UITemplate.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/sakumanaoki/Unity/ToyShader/ShaderSample/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
