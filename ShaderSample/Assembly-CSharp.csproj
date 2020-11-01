@@ -66,6 +66,8 @@
      <Compile Include="Assets\Scripts\SerializedObject\SerializedObjectListTest.cs" />
      <Compile Include="Assets\Scripts\SerializedObject\SerializedObjectTest.cs" />
      <Compile Include="Assets\Scripts\Snow.cs" />
+     <Compile Include="Assets\Shaders\Attribute\Scripts\EnumTest.cs" />
+     <Compile Include="Assets\Shaders\Attribute\Scripts\MaterialPropertyBlockTest.cs" />
      <Compile Include="Assets\Shaders\EffectUITest\Scripts\EffectEditor.cs" />
      <Compile Include="Assets\Shaders\EffectUITest\Scripts\EffectUI.cs" />
      <Compile Include="Assets\Shaders\EffectUITest\Scripts\MaterialDirtyScope.cs" />
@@ -83,6 +85,7 @@
      <None Include="Assets\Shaders\MoveRing\moveRing.shader" />
      <None Include="Assets\Shaders\Shake\shake.shader" />
      <None Include="Assets\Shaders\DepthEffect\depthEffect.shader" />
+     <None Include="Assets\Shaders\Shake\shakeTexture.shader" />
      <None Include="Assets\Shaders\Raymarching\lightingRaymarching.shader" />
      <None Include="Assets\Shaders\ExtensionNoise\extensionNoiseUtil.cginc" />
      <None Include="Assets\Shaders\WaterSurface\waterSurface.shader" />
@@ -102,6 +105,7 @@
      <None Include="Assets\Shaders\Figure\MoveFigure.shader" />
      <None Include="Assets\Shaders\Matcap\Matcap.shader" />
      <None Include="Assets\Shaders\GaussianBlur\GaussianBlurUnlit.shader" />
+     <None Include="Assets\Shaders\Attribute\Shaders\toggleTest.shader" />
      <None Include="Assets\Shaders\Raymarching\simpleRaymarching.shader" />
      <None Include="Assets\Shaders\ExtensionNoise\BackgroundNoise.shader" />
      <None Include="Assets\Shaders\Noise\FlameNoise.shader" />
@@ -131,6 +135,7 @@
      <None Include="Assets\Shaders\Drawing\Drawing_2.shader" />
      <None Include="Assets\Shaders\PerlinNoise\perlinNoise.shader" />
      <None Include="Assets\Shaders\outline\outline.shader" />
+     <None Include="Assets\Shaders\Attribute\Shaders\attribute.shader" />
      <None Include="Assets\Shaders\Normalmap\Normalmap.shader" />
      <None Include="Assets\Shaders\snow\snow.shader" />
      <None Include="Assets\Shaders\outline\FadeCircle.shader" />
@@ -151,7 +156,9 @@
      <None Include="Assets\Shaders\Template\fragmentTemplate.shader" />
      <None Include="Assets\Shaders\EffectUITest\Shaders\EffectUI.cginc" />
      <None Include="Assets\Shaders\outline\outlineImage.shader" />
+     <None Include="Assets\Shaders\Noise\keywordEnumTest.shader" />
      <None Include="Assets\Shaders\CommandBuffer\StencilLambert.shader" />
+     <None Include="Assets\Shaders\Attribute\Shaders\materialPropertyBlock.shader" />
      <None Include="Assets\Shaders\MoveRing\moveRingFix.shader" />
      <None Include="Assets\Shaders\Matcap\Lambert.shader" />
      <None Include="Assets\Shaders\Stencil\stainedGlass.shader" />
