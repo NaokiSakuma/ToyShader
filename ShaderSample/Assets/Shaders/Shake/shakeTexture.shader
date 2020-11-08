@@ -11,7 +11,8 @@
         _SinWave("SinWave", Range(0, 1)) = 0.2
         _SinWidth("SinWidth", Range(0, 1)) = 0.5
         _SinSpeed("SinSpeed", Range(0, 1)) = 0.2
-        _SinColorDistant("SinColorDistant", Range(0, 1)) = 0.2
+        _SinColorDistant("SinColorDistant", Range(0, 3)) = 0.2
+		[Toggle] _IsHorizontal ("Is Horizontal", int) = 0
     }
 
     SubShader {
@@ -30,8 +31,8 @@
 
         Pass {
         CGPROGRAM
-            #pragma vertex SpriteVert
-            #pragma fragment SpriteFrag
+            #pragma vertex vert
+            #pragma fragment frag
             #pragma target 2.0
             #pragma multi_compile_instancing
             #pragma multi_compile _ PIXELSNAP_ON
@@ -72,7 +73,7 @@
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
 
-			v2f SpriteVert(appdata_t v) {
+			v2f vert(appdata_t v) {
 				v2f o;
 				UNITY_SETUP_INSTANCE_ID (v);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
@@ -94,26 +95,26 @@
 			float _SinWidth;
 			float _SinSpeed;
 			float _SinColorDistant;
+			int _IsHorizontal;
 
 			float _wave;
 			float _speed;
 			float _width;
 			float _clrDis;
 
+			/// <summary>
+			/// UV値を係数に応じてズラす
+			/// </summary>
+			/// <param name="inUV">UV値</param>
+			/// <param name="n">指数</param>
 			float2 posColor(float2 inUV, float n) {
-				return inUV + float2(sin(inUV.y *_wave + _speed + _clrDis * n) * _width, 0);
+				float waveValueX = sin(inUV.y * _wave + _speed + _clrDis * n) * _width;
+				float waveValueY = sin(inUV.x * _wave + _speed + _clrDis * n) * _width;
+				// stepで縦に揺れるか横に揺れるかを決める
+				return inUV + float2(waveValueX * step(1, _IsHorizontal), waveValueY * step(_IsHorizontal, 0));
 			}
 
-			fixed4 SampleSpriteTexture (float2 uv) {
-				fixed4 color = tex2D (_MainTex, uv);
-			#if ETC1_EXTERNAL_ALPHA
-				fixed4 alpha = tex2D (_AlphaTex, uv);
-				color.a = lerp (color.a, alpha.r, _EnableExternalAlpha);
-			#endif
-				return color;
-			}
-
-			fixed4 SpriteFrag(v2f i) : SV_Target {
+			fixed4 frag(v2f i) : SV_Target {
 				fixed4 color = fixed4(0, 0, 0, 0);
 				float2 inUV = i.texcoord;
 
@@ -122,21 +123,16 @@
 				_width = _SinWidth * 0.2;
 				_clrDis = _SinColorDistant * _SinWidth * 5;
 
-				if(_SinColorDistant == 0) {
-					float mysin = sin(inUV.y *_wave + _speed) * _width;
-					color = tex2D(_MainTex, inUV + float2(mysin, 0));
-
-				} else {
-
-					color.r = tex2D(_MainTex, posColor(inUV, 2)).r;
-					color.g = tex2D(_MainTex, posColor(inUV, 1)).g;
-					color.b = tex2D(_MainTex, posColor(inUV, 0)).b;
-					color.a = (
-						tex2D(_MainTex, posColor(inUV, 2)).a+
-						tex2D(_MainTex, posColor(inUV, 1)).a+
+				// 各色をズラす
+				color.r = tex2D(_MainTex, posColor(inUV, 2)).r;
+				color.g = tex2D(_MainTex, posColor(inUV, 1)).g;
+				color.b = tex2D(_MainTex, posColor(inUV, 0)).b;
+				// 透過画像対策でアルファ値もズレに合わせる
+				color.a = (
+						tex2D(_MainTex, posColor(inUV, 2)).a +
+						tex2D(_MainTex, posColor(inUV, 1)).a +
 						tex2D(_MainTex, posColor(inUV, 0)).a
-					)/3;
-				}
+					) / 3;
 
 				color *= i.color;
 				color.rgb *= color.a;
