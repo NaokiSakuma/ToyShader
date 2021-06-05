@@ -4,20 +4,18 @@
 public class BloomTexture : MonoBehaviour {
     [SerializeField]
     private Shader _shader;
-
+    // 全体の強度
     [SerializeField, Range(0, 1f)]
-    public float strength = 0.3f;
-    [SerializeField, Range(1, 12)]
-    public int samplerCnt = 6;
+    public float _strength = 0.3f;
     // ブラーの強度
     [SerializeField, Range(1, 64)]
-    public int blur = 20;
+    public int _blur = 20;
     // 明るさのしきい値
     [SerializeField, Range(0, 1f)]
-    public float threshold = 0.3f;
+    public float _threshold = 0.3f;
     // RenderTextureサイズの分母
     [SerializeField, Range(1,12)]
-    public int ratio = 1;
+    public int _ratio = 1;
 
     [SerializeField, Range(1f, 10f)]
     private float _offset = 1f;
@@ -35,15 +33,15 @@ public class BloomTexture : MonoBehaviour {
 
     private void _OnRenderImage (RenderTexture src, RenderTexture dest)
     {
-        int renderTextureX = src.width / ratio;
-        int renderTextureY = src.height / ratio;
+        int renderTextureX = src.width / _ratio;
+        int renderTextureY = src.height / _ratio;
         RenderTexture tmp  = CreateRenderTexture(renderTextureX, renderTextureY);
         RenderTexture tmp2 = CreateRenderTexture(renderTextureX, renderTextureY);
 
-        _material.SetFloat ("_SamplerCnt", samplerCnt);
-        _material.SetFloat ("_Strength", strength);
-        _material.SetFloat ("_Threshold", threshold);
-        _material.SetFloat ("_Blur", blur);
+        // Bloom
+        _material.SetFloat ("__strength", _strength);
+        _material.SetFloat ("_Threshold", _threshold);
+        _material.SetFloat ("_Blur", _blur);
         _material.SetTexture ("_Tmp", tmp);
         Graphics.Blit (src, tmp, _material, 0);
 
@@ -79,7 +77,7 @@ public class BloomTexture : MonoBehaviour {
     /// </summary>
     private void UpdateWeights() {
         float total = 0;
-        float d = blur * blur * 0.01f;
+        float d = _blur * _blur * 0.01f;
         for (int i = 0; i < _weights.Length; i++) {
             float x = 1.0f + i * 2f;
             float w = Mathf.Exp(-0.5f * (x * x) / d);

@@ -48,7 +48,6 @@
             [unroll]
             // 左右へのサンプリング
             for (int j = samplingCount - 1; j > 0; j--) {
-                // col += tex2D(_Tmp, i.uv - (_Offset.xy * j)) * _Weights[j];
                 col += tex2D(_Tmp, i.uv - (_Offset.xy * j)) * _Weights[j];
             }
 
