@@ -1,0 +1,98 @@
+﻿using UnityEngine;
+
+[ExecuteInEditMode]
+public class BloomTexture : MonoBehaviour {
+    [SerializeField]
+    private Shader _shader;
+
+    [SerializeField, Range(0, 1f)]
+    public float strength = 0.3f;
+    [SerializeField, Range(1, 12)]
+    public int samplerCnt = 6;
+    // ブラーの強度
+    [SerializeField, Range(1, 64)]
+    public int blur = 20;
+    // 明るさのしきい値
+    [SerializeField, Range(0, 1f)]
+    public float threshold = 0.3f;
+    // RenderTextureサイズの分母
+    [SerializeField, Range(1,12)]
+    public int ratio = 1;
+
+    [SerializeField, Range(1f, 10f)]
+    private float _offset = 1f;
+
+    private Material _material;
+    private float[] _weights = new float[10];
+
+    void OnRenderImage(RenderTexture src, RenderTexture dest) {
+        if (_material == null) {
+            _material = new Material(_shader);
+            _material.hideFlags = HideFlags.DontSave;
+        }
+        _OnRenderImage(src, dest);
+    }
+
+    private void _OnRenderImage (RenderTexture src, RenderTexture dest)
+    {
+        int renderTextureX = src.width / ratio;
+        int renderTextureY = src.height / ratio;
+        RenderTexture tmp  = CreateRenderTexture(renderTextureX, renderTextureY);
+        RenderTexture tmp2 = CreateRenderTexture(renderTextureX, renderTextureY);
+
+        _material.SetFloat ("_SamplerCnt", samplerCnt);
+        _material.SetFloat ("_Strength", strength);
+        _material.SetFloat ("_Threshold", threshold);
+        _material.SetFloat ("_Blur", blur);
+        _material.SetTexture ("_Tmp", tmp);
+        Graphics.Blit (src, tmp, _material, 0);
+
+        // ガウシアンブラー
+        UpdateWeights();
+        _material.SetFloatArray("_Weights", _weights);
+        float x = _offset / tmp2.width;
+        float y = _offset / tmp2.height;
+        _material.SetVector("_Offset", new Vector4(x, 0, 0, 0));
+        Graphics.Blit(src, tmp2, _material, 1);
+        _material.SetVector("_Offset", new Vector4(0, y, 0, 0));
+        Graphics.Blit(tmp2, dest, _material, 1);
+
+        RenderTexture.ReleaseTemporary(tmp);
+        RenderTexture.ReleaseTemporary(tmp2);
+    }
+
+    /// <summary>
+    /// RenderTextureの生成
+    /// </summary>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <returns></returns>
+    private RenderTexture CreateRenderTexture(int width, int height)
+    {
+        RenderTexture renderTexture = RenderTexture.GetTemporary(width, height, 0, RenderTextureFormat.ARGB32);
+        renderTexture.filterMode = FilterMode.Bilinear;
+        return renderTexture;
+    }
+
+    /// <summary>
+    /// 重みの計算
+    /// </summary>
+    private void UpdateWeights() {
+        float total = 0;
+        float d = blur * blur * 0.01f;
+        for (int i = 0; i < _weights.Length; i++) {
+            float x = 1.0f + i * 2f;
+            float w = Mathf.Exp(-0.5f * (x * x) / d);
+            _weights[i] = w;
+            // xとyがあるので2倍
+            if (i > 0) {
+                w *= 2.0f;
+            }
+            total += w;
+        }
+        // 正規化
+        for (int i = 0; i < _weights.Length; i++) {
+            _weights[i] /= total;
+        }
+    }
+}
