@@ -8,7 +8,6 @@
         ZWrite Off
         ZTest Always
 
-        // Pass 0 bright sampling
         Pass {
             CGPROGRAM
             #pragma vertex vert_img
@@ -16,11 +15,9 @@
             ENDCG
         }
 
-        // Pass 2 ガウシアンテスト
         Pass {
             CGPROGRAM
             #pragma vertex vert_img
-            // 名前
             #pragma fragment fragGauss
             ENDCG
         }
@@ -51,7 +48,6 @@
             [unroll]
             // 左右へのサンプリング
             for (int j = samplingCount - 1; j > 0; j--) {
-                // col += tex2D(_Tmp, i.uv - (_Offset.xy * j)) * _Weights[j];
                 col += tex2D(_Tmp, i.uv - (_Offset.xy * j)) * _Weights[j];
             }
 

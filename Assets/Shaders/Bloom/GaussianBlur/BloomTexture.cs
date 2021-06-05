@@ -39,7 +39,7 @@ public class BloomTexture : MonoBehaviour {
         RenderTexture tmp2 = CreateRenderTexture(renderTextureX, renderTextureY);
 
         // Bloom
-        _material.SetFloat ("__strength", _strength);
+        _material.SetFloat ("_Strength", _strength);
         _material.SetFloat ("_Threshold", _threshold);
         _material.SetFloat ("_Blur", _blur);
         _material.SetTexture ("_Tmp", tmp);

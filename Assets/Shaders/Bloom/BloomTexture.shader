@@ -39,7 +39,7 @@
             float bright = (col.r + col.g + col.b) / 3;
             // しきい値によって明るさを決める
             float tmp = step(_Threshold, bright);
-            return tex2D(_MainTex, i.uv) * tmp * _Strength;
+            return col * tmp * _Strength;
         }
 
         fixed4 fragGauss (v2f_img i) : SV_Target {
