@@ -1,4 +1,4 @@
-﻿Shader "Unlit/ShadowDef" {
+﻿Shader "Unlit/ShadowDefault" {
     Properties {
         _MainTex ("Texture", 2D) = "white" {}
     }
@@ -6,7 +6,7 @@
 
         // 通常の描画
         Pass {
-            Tags { "RenderType"="Opaque" }
+            Tags { "RenderType"="Opaque"  }
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
