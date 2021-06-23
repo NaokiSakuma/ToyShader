@@ -6,21 +6,30 @@
 
         // 通常の描画
         Pass {
-            Tags { "RenderType"="Opaque"  }
+            Tags { "RenderType"="Opaque" "LightMode"="ForwardBase" }
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #pragma multi_compile_fwdbase nolightmap nodirlightmap nodynlightmap novertexlights
 
             #include "UnityCG.cginc"
+            #include "Lighting.cginc"
+            #include "AutoLight.cginc"
 
             struct appdata {
                 float4 vertex : POSITION;
+                float3 normal : NORMAL;
                 float2 uv : TEXCOORD0;
             };
 
             struct v2f {
                 float2 uv : TEXCOORD0;
-                float4 vertex : SV_POSITION;
+                fixed4 diff : COLOR0;
+                // 変数名は"pos"固定
+                float4 pos : SV_POSITION;
+                // unityShadowCoord4型(float4)を定義
+                // 影の情報を入れる
+                SHADOW_COORDS(1)
             };
 
             sampler2D _MainTex;
@@ -28,14 +37,21 @@
 
             v2f vert (appdata v) {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                half3 worldNormal = UnityObjectToWorldNormal(v.normal);
+                half NdotL = saturate(dot(worldNormal, _WorldSpaceLightPos0.xyz));
+                o.diff = NdotL * _LightColor0;
+                // SHADOW_COORDSにスクリーンスペース座標を入れる
+                TRANSFER_SHADOW(o)
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                return col;
+                // シャドウマップのテクセルを反映
+                fixed4 shadow = SHADOW_ATTENUATION(i);
+                return col * i.diff * shadow;
             }
             ENDCG
         }
